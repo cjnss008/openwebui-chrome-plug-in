@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "OpenWebUI Copilot Sidebar",
-  "version": "0.1.0",
-  "description": "在浏览器侧边栏中使用 OpenWebUI，与当前页面联动并支持 Markdown 展示。",
+  "name": "大厂乐乎 Copilot Sidebar",
+  "version": "0.2.0",
+  "description": "在浏览器侧边栏中使用大厂乐乎（OpenWebUI），支持分屏、历史对话和页面抓取。",
   "permissions": [
     "storage",
     "sidePanel",

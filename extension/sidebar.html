@@ -3,48 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OpenWebUI Copilot</title>
+  <title>大厂乐乎 Copilot</title>
   <link rel="stylesheet" href="sidebar.css" />
 </head>
 <body>
   <div class="app">
-    <header class="header">
-      <div class="header-left">
-        <div class="title">Copilot · OpenWebUI</div>
-        <button id="new-chat" class="ghost">新建对话</button>
+    <header class="top-bar">
+      <button id="new-chat" class="icon-button ghost" title="新建对话">
+        <img src="icons/new-chat.svg" alt="新建" class="icon-img" />
+      </button>
+      <div class="title-block">
+        <div class="title">大厂乐乎</div>
+        <div class="subtitle">Copilot 可能会出错。</div>
       </div>
-      <div class="header-right">
-        <label class="capture-toggle" title="针对当前页面提问">
-          <input type="checkbox" id="capture-page" />
-          <span>抓取该页面</span>
-        </label>
-        <button id="settings" class="icon-button" title="设置">
-          <span class="icon-gear" aria-hidden="true"></span>
+      <div class="top-actions">
+        <button id="history-btn" class="icon-button ghost" title="历史对话">
+          <img src="icons/history.svg" alt="历史" class="icon-img" />
+        </button>
+        <button id="settings" class="icon-button ghost" title="设置">
+          <img src="icons/settings.svg" alt="设置" class="icon-img" />
+        </button>
+        <button id="close-panel" class="icon-button ghost" title="关闭侧边栏">
+          <img src="icons/close.svg" alt="关闭" class="icon-img" />
         </button>
       </div>
     </header>
+
+    <div class="timeline">
+      <span>今天</span>
+    </div>
+
     <main class="chat">
       <div id="messages" class="messages"></div>
     </main>
+
     <footer class="composer">
-      <div class="model-select">
-        <label for="model">模型</label>
-        <select id="model"></select>
+      <div class="capture-toggle">
+        <label class="capture-pill" for="capture-page">
+          <input type="checkbox" id="capture-page" />
+          <span>抓取该页面</span>
+        </label>
       </div>
-      <div class="input-area">
-        <textarea id="prompt" rows="1" placeholder="输入内容，Enter 发送，Shift+Enter 换行"></textarea>
-        <button id="send" class="primary">发送</button>
+      <div class="input-shell">
+        <div class="input-area">
+          <button id="model-trigger" class="model-button" type="button" title="选择模型">
+            <span id="model-trigger-label">模型</span>
+            <span class="icon-caret" aria-hidden="true"></span>
+          </button>
+          <textarea id="prompt" rows="1" placeholder="输入内容，Enter 发送，Shift+Enter 换行"></textarea>
+          <button id="send" class="send-button" title="发送">
+            <img src="icons/send.svg" alt="发送" class="icon-img" />
+          </button>
+        </div>
+        <div id="model-menu" class="model-menu hidden" role="listbox" aria-label="选择模型"></div>
       </div>
       <div class="status" id="status"></div>
     </footer>
   </div>
 
   <div id="settings-overlay" class="overlay hidden" role="dialog" aria-modal="true">
-    <div class="overlay-content">
+    <div class="overlay-content settings-panel">
       <header class="overlay-header">
         <h2>设置</h2>
-        <button id="close-settings" class="icon-button" title="关闭">
-          <span class="icon-close" aria-hidden="true"></span>
+        <button id="close-settings" class="icon-button ghost" title="关闭">
+          <img src="icons/close.svg" alt="关闭" class="icon-img" />
         </button>
       </header>
       <div class="overlay-body">
@@ -56,10 +78,6 @@
           <span>API Key</span>
           <input type="text" id="setting-key" placeholder="Bearer token" />
         </label>
-        <label class="field">
-          <span>默认模型</span>
-          <input type="text" id="setting-model" placeholder="gpt-5-chat-latest" />
-        </label>
       </div>
       <footer class="overlay-footer">
         <button id="test-settings" class="ghost">测试</button>
@@ -67,6 +85,21 @@
         <button id="save-settings" class="primary">保存</button>
       </footer>
       <div id="settings-hint" class="settings-hint"></div>
+    </div>
+  </div>
+
+  <div id="history-overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="overlay-content history-panel">
+      <header class="overlay-header">
+        <h2>历史对话</h2>
+        <button id="close-history" class="icon-button ghost" title="关闭">
+          <img src="icons/close.svg" alt="关闭" class="icon-img" />
+        </button>
+      </header>
+      <div class="overlay-body history-body">
+        <div id="history-list" class="history-list"></div>
+        <div id="history-empty" class="history-empty hidden">暂无历史记录或需要先配置连接。</div>
+      </div>
     </div>
   </div>
 
