@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenWebUI Copilot</title>
+  <link rel="stylesheet" href="sidebar.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-left">
+        <div class="title">Copilot · OpenWebUI</div>
+        <button id="new-chat" class="ghost">新建对话</button>
+      </div>
+      <div class="header-right">
+        <label class="capture-toggle" title="针对当前页面提问">
+          <input type="checkbox" id="capture-page" />
+          <span>抓取该页面</span>
+        </label>
+        <button id="settings" class="icon-button" title="设置">
+          <span class="icon-gear" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+    <main class="chat">
+      <div id="messages" class="messages"></div>
+    </main>
+    <footer class="composer">
+      <div class="model-select">
+        <label for="model">模型</label>
+        <select id="model"></select>
+      </div>
+      <div class="input-area">
+        <textarea id="prompt" rows="1" placeholder="输入内容，Enter 发送，Shift+Enter 换行"></textarea>
+        <button id="send" class="primary">发送</button>
+      </div>
+      <div class="status" id="status"></div>
+    </footer>
+  </div>
+
+  <div id="settings-overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="overlay-content">
+      <header class="overlay-header">
+        <h2>设置</h2>
+        <button id="close-settings" class="icon-button" title="关闭">
+          <span class="icon-close" aria-hidden="true"></span>
+        </button>
+      </header>
+      <div class="overlay-body">
+        <label class="field">
+          <span>OpenWebUI 地址</span>
+          <input type="text" id="setting-base" placeholder="例如：https://your-openwebui-host" />
+        </label>
+        <label class="field">
+          <span>API Key</span>
+          <input type="text" id="setting-key" placeholder="Bearer token" />
+        </label>
+        <label class="field">
+          <span>默认模型</span>
+          <input type="text" id="setting-model" placeholder="gpt-5-chat-latest" />
+        </label>
+      </div>
+      <footer class="overlay-footer">
+        <button id="test-settings" class="ghost">测试</button>
+        <div class="overlay-spacer"></div>
+        <button id="save-settings" class="primary">保存</button>
+      </footer>
+      <div id="settings-hint" class="settings-hint"></div>
+    </div>
+  </div>
+
+  <script src="lib/marked.min.js"></script>
+  <script src="sidebar.js" type="module"></script>
+</body>
+</html>

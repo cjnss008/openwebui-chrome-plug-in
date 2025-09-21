@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "OpenWebUI Copilot Sidebar",
+  "version": "0.1.0",
+  "description": "在浏览器侧边栏中使用 OpenWebUI，与当前页面联动并支持 Markdown 展示。",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://r.jina.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "OpenWebUI Copilot"
+  },
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "minimum_chrome_version": "114"
+}
