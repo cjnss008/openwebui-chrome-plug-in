@@ -14,9 +14,15 @@
       </button>
       <div class="title-block">
         <div class="title">大厂乐乎</div>
-        <div class="subtitle">Copilot 可能会出错。</div>
       </div>
       <div class="top-actions">
+        <div class="model-wrapper">
+          <button id="model-trigger" class="model-button" type="button" title="选择模型">
+            <span id="model-trigger-label">模型</span>
+            <span class="icon-caret" aria-hidden="true"></span>
+          </button>
+          <div id="model-menu" class="model-menu hidden" role="listbox" aria-label="选择模型"></div>
+        </div>
         <button id="history-btn" class="icon-button ghost" title="历史对话">
           <img src="icons/history.svg" alt="历史" class="icon-img" />
         </button>
@@ -46,16 +52,11 @@
       </div>
       <div class="input-shell">
         <div class="input-area">
-          <button id="model-trigger" class="model-button" type="button" title="选择模型">
-            <span id="model-trigger-label">模型</span>
-            <span class="icon-caret" aria-hidden="true"></span>
-          </button>
           <textarea id="prompt" rows="1" placeholder="输入内容，Enter 发送，Shift+Enter 换行"></textarea>
           <button id="send" class="send-button" title="发送">
             <img src="icons/send.svg" alt="发送" class="icon-img" />
           </button>
         </div>
-        <div id="model-menu" class="model-menu hidden" role="listbox" aria-label="选择模型"></div>
       </div>
       <div class="status" id="status"></div>
     </footer>
@@ -103,7 +104,7 @@
     </div>
   </div>
 
-  <script src="lib/marked.min.js"></script>
+  <script src="marked.min.js"></script>
   <script src="sidebar.js" type="module"></script>
 </body>
 </html>
