@@ -112,6 +112,6 @@ cd <repo>
 
 ---
 
-## 许可证
+## 效果图
 
-MIT（见 `LICENSE`）。
+<img width="2294" height="1534" alt="image" src="https://github.com/user-attachments/assets/90e05db1-0692-4ee2-8e2e-cfafe67e7ae8" />
