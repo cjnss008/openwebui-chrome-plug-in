@@ -2,7 +2,7 @@ OpenWebUI Copilot Sidebar (Async/SSE aware)
 
 1) 在 chrome://extensions 打开“开发者模式”，加载此文件夹。
 2) 在侧边栏设置中填入：
-   - Base URL: https://c.lol2.com.cn
+   - Base URL: your-URL
    - API Key : （你的 OpenWebUI Key）
    - Model   : gpt-5-chat-latest
 3) 插件已自动兼容：
