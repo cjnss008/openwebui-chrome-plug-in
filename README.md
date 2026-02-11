@@ -113,5 +113,4 @@ cd <repo>
 ---
 
 ## 效果图
-
-<img width="2294" height="1534" alt="image" src="https://github.com/user-attachments/assets/90e05db1-0692-4ee2-8e2e-cfafe67e7ae8" />
+<img width="3438" height="1782" alt="image" src="https://github.com/user-attachments/assets/547d0c4f-b9b2-4330-ad61-8f6ac3b0fec8" />
